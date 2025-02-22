@@ -1,0 +1,17 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: data-analysis-service
+  mvc:
+    servlet:
+      load-on-startup: 1
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka/
+    registryFetchIntervalSeconds: 1
+  instance:
+    leaseRenewalIntervalInSeconds: 1
