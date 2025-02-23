@@ -30,3 +30,6 @@ eureka:
     registryFetchIntervalSeconds: 1
   instance:
     leaseRenewalIntervalInSeconds: 1
+
+alphavantage:
+  apikey: C656F9GOXQS3O9BI
