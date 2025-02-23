@@ -1,6 +1,8 @@
-management.endpoints.web.exposure.include: "*"
+server:
+  port: 9001
 
 spring:
+  application.name: data-retrieval-service
   data:
     mongodb:
       host: localhost
@@ -11,3 +13,20 @@ spring:
     port: 5672
     username: guest
     password: guest
+  cloud.config:
+    discovery:
+      enabled: true
+      serviceId: config-server
+    fail-fast: true
+    retry:
+      initialInterval: 2000
+      maxAttempts: 30
+  mvc.servlet.load-on-startup: 1
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8001/eureka/
+    registryFetchIntervalSeconds: 1
+  instance:
+    leaseRenewalIntervalInSeconds: 1
