@@ -4,6 +4,11 @@ server:
 spring:
   application:
     name: data-analysis-service
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: guest
+    password: guest
   mvc:
     servlet:
       load-on-startup: 1
