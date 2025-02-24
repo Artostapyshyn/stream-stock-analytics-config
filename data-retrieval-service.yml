@@ -31,5 +31,18 @@ eureka:
   instance:
     leaseRenewalIntervalInSeconds: 1
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  metrics:
+    enable:
+      all: true
+  health:
+    show-details: always
+  web:
+    base-path: /actuator
+
 alphavantage:
   apikey: C656F9GOXQS3O9BI
