@@ -1,11 +1,9 @@
 server:
   port: 8001
-  
+
 spring:
   application:
     name: discovery-server
-
-eureka:
   eureka:
     client:
       registerWithEureka: false
