@@ -5,11 +5,11 @@ spring:
   application.name: data-retrieval-service
   data:
     mongodb:
-      host: localhost
+      host: mongo
       port: 27017
       database: db
   rabbitmq:
-    host: localhost
+    host: rabbitmq
     port: 5672
     username: guest
     password: guest
