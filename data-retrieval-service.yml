@@ -2,29 +2,38 @@ server:
   port: 9001
 
 spring:
-  application.name: data-retrieval-service
+  application:
+    name: data-retrieval-service
+
   data:
-  mongodb:
-    host: mongo
-    port: 27017
-    database: db
-    username: root
-    password: password
-    auto-index-creation: true
+    mongodb:
+      host: mongo
+      port: 27017
+      database: db
+      username: root
+      password: password
+      authentication-database: admin
+      auto-index-creation: true
+
   rabbitmq:
     host: rabbitmq
     port: 5672
     username: guest
     password: guest
-  cloud.config:
-    discovery:
-      enabled: true
-      serviceId: config-server
-    fail-fast: true
-    retry:
-      initialInterval: 2000
-      maxAttempts: 30
-  mvc.servlet.load-on-startup: 1
+
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        serviceId: config-server
+      fail-fast: true
+      retry:
+        initialInterval: 2000
+        maxAttempts: 30
+
+  mvc:
+    servlet:
+      load-on-startup: 1
 
 eureka:
   client:
