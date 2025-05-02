@@ -4,11 +4,13 @@ server:
 spring:
   application.name: data-retrieval-service
   data:
-    mongodb:
-      host: mongo
-      port: 27017
-      database: db
-      auto-index-creation: true
+  mongodb:
+    host: mongo
+    port: 27017
+    database: db
+    username: root
+    password: password
+    auto-index-creation: true
   rabbitmq:
     host: rabbitmq
     port: 5672
