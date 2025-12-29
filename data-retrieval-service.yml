@@ -4,7 +4,6 @@ server:
 spring:
   application:
     name: data-retrieval-service
-
   data:
     mongodb:
       host: mongo
@@ -14,7 +13,6 @@ spring:
       password: password
       authentication-database: admin
       auto-index-creation: true
-
   kafka:
     bootstrap-servers: kafka:9092
     consumer:
@@ -25,7 +23,6 @@ spring:
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
-
   cloud:
     config:
       discovery:
@@ -35,10 +32,13 @@ spring:
       retry:
         initialInterval: 2000
         maxAttempts: 30
-
   mvc:
     servlet:
       load-on-startup: 1
+
+logging:
+  pattern:
+    level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
 
 eureka:
   client:
@@ -67,10 +67,6 @@ management:
   zipkin:
     tracing:
       endpoint: http://tempo:9411/api/v2/spans
-
-  logging:
-    pattern:
-      level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
 
 alphavantage:
   apikey: C656F9GOXQS3O9BI
