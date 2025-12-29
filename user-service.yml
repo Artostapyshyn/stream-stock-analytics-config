@@ -6,13 +6,10 @@ spring:
     servlet:
       load-on-startup: 1
 
-  datasource:
+  r2dbc:
     url: r2dbc:postgresql://postgres:5432/postgres
     username: user
     password: password
-    driver-class-name: org.postgresql.Driver
-    hikari:
-      maximum-pool-size: 10
 
   jpa:
     hibernate:
