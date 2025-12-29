@@ -29,6 +29,10 @@ eureka:
   instance:
     leaseRenewalIntervalInSeconds: 1
 
+logging:
+  pattern:
+    level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
+
 management:
   endpoints:
     web:
@@ -41,6 +45,12 @@ management:
     show-details: always
   web:
     base-path: /actuator
+  tracing:
+    sampling:
+      probability: 1.0
+  zipkin:
+    tracing:
+      endpoint: http://tempo:9411/api/v2/spans
 
 jwt:
   secret: MiAVzqUXy5Tfr1kVIGpPMiAVzqUXy5Tfr1kVIGpP
