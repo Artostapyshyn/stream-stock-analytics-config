@@ -2,26 +2,43 @@ server:
   port: 9001
 
 spring:
-  application.name: data-retrieval-service
+  application:
+    name: data-retrieval-service
+
   data:
     mongodb:
       host: mongo
       port: 27017
-      database: db
-  rabbitmq:
-    host: rabbitmq
-    port: 5672
-    username: guest
-    password: guest
-  cloud.config:
-    discovery:
-      enabled: true
-      serviceId: config-server
-    fail-fast: true
-    retry:
-      initialInterval: 2000
-      maxAttempts: 30
-  mvc.servlet.load-on-startup: 1
+      database: admin
+      username: root
+      password: password
+      authentication-database: admin
+      auto-index-creation: true
+
+  kafka:
+    bootstrap-servers: kafka:9092
+    consumer:
+      group-id: financial-data-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        serviceId: config-server
+      fail-fast: true
+      retry:
+        initialInterval: 2000
+        maxAttempts: 30
+
+  mvc:
+    servlet:
+      load-on-startup: 1
 
 eureka:
   client:
