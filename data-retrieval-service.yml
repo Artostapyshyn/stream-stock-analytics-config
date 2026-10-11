@@ -69,4 +69,4 @@ management:
       endpoint: http://tempo:9411/api/v2/spans
 
 alphavantage:
-  apikey: C656F9GOXQS3O9BI
+  apikey: KHMH762M6RS63ZZB
